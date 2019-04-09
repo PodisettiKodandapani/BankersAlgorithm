@@ -1,0 +1,36 @@
+                                           Bankers algorithm 
+                                           
+ Available:  Vector of length m. 
+    If available [j] = k, there are k instances of resource type Rj  available.
+Max: n x m matrix.  
+   If Max [i,j] = k, then process Pi may request at most k instances of resource type Rj.
+Allocation:  n x m matrix. 
+   If Allocation[i,j] = k then Pi is currently allocated k instances of Rj.
+Need:  n x m matrix.
+   If Need[i,j] = k, then Pi may need k more instances of Rj to complete its task.
+Need [i,j] = Max[i,j] – Allocation [i,j]
+
+
+Let Request be the request vector for process Pi. If Requesti[j] = k then process Pi wants k instances of resource type Rj
+1.   If Requesti  Needi go to step 2.  Otherwise, raise error condition, since process has exceeded its maximum claim
+2.	If Requesti  Available, go to step 3.  Otherwise Pi must wait, since resources are not available
+3. Pretend to allocate requested resources to Pi by modifying the state as follows:
+Available = Available - Requesti
+Allocationi = Allocationi + Requesti
+Needi = Needi – Requesti
+If safe  the resources are allocated to Pi
+If unsafe  Pi must wait, and the old resource-allocation state is restored
+
+
+
+
+
+
+
+
+
+
+
+
+    
+           
